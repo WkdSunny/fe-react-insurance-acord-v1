@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { UploadButton, DeleteButton, CheckButton } from "../buttons";
 import { ImageConfig } from "../imageConfig";
-import extraction from "../../../../services/apiHandler/extraction";
+import extraction from "../../../services/apiHandler/extraction";
 
 const FilePreviewContainer = styled.div`
   display: flex;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { HomeButton } from "./body/common/buttons";
-import Dropdown, { DropdownStyle } from "./body/common/dropdown";
-import UserDetails from "./body/common/userDetails";
+import { HomeButton } from "./common/buttons";
+import Dropdown, { DropdownStyle } from "./common/dropdown";
+import UserDetails from "./common/userDetails";
 import ProfielImage from "./assets/dummy-profile-img.png"
 
 const NavContainer = styled.nav`

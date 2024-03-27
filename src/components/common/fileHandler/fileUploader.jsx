@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from "styled-components";
-import DragDrop from "../common/fileHandler/dragDrop";
-import FilePreview from "../common/fileHandler/filePreview";
+import DragDrop from "./dragDrop";
+import FilePreview from "./filePreview";
 
 const FileUploadContainer = styled.div `
   position: relative;
