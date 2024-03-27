@@ -11,6 +11,8 @@ const extraction = async (files) => {
       formData.append('file', files);
     }
 
+
+
     const response = await fetch('http://127.0.0.1:5000/extract', {
       method: 'POST',
       body: formData
@@ -20,7 +22,7 @@ const extraction = async (files) => {
       // File uploaded successfully
       console.log('File uploaded successfully');
       const data = await response.json();
-      console.log(JSON.stringify(data));
+      // console.log(JSON.stringify(data));
 
       // Call the LLM API
       // console.log(getPrompt(data).prompt.replace(/\n\s*/g, '\n'));
