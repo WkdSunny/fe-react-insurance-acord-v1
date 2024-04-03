@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 
 const BodyContainer = styled.div `
@@ -8,13 +9,11 @@ const BodyContainer = styled.div `
   transition: all 0.5s ease-in-out;
 `
 
-function Body() {
+export default function Body(props) {
 
   return (
-    <>
-      <BodyContainer />
-    </>
+    <BodyContainer>
+      {props.children}
+    </BodyContainer>
   );
 }
-
-export default Body;

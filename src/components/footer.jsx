@@ -9,6 +9,10 @@ const FooterContainer = styled.footer `
   text-align: right;
   margin-top: auto;
   height: auto;
+
+  @media (max-width: 350px) {
+    font-size: .5em;
+  }
 `
 
 function Footer() {

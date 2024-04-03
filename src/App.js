@@ -18,14 +18,15 @@ function App() {
     <AuthProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} />
-          <Route path="/signup" element={<PublicRoute><SignUp /></PublicRoute>} />
+          {/* <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} /> */}
+          <Route path="/" element={<Home />} />
+          {/* <Route path="/signup" element={<PublicRoute><SignUp /></PublicRoute>} />
           <Route path="/signin" element={<PublicRoute><SignIn /></PublicRoute>} />
           <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
           <Route path="/settings" element={<PrivateRoute><Settings /></PrivateRoute>} />
           <Route path="/feedback" element={<PrivateRoute><Feedback /></PrivateRoute>} />
           <Route path="/support" element={<PrivateRoute><Support /></PrivateRoute>} />
-          <Route path="/signout" element={<PrivateRoute><SignOut /></PrivateRoute>} />
+          <Route path="/signout" element={<PrivateRoute><SignOut /></PrivateRoute>} /> */}
           <Route path="*" element={<NoPage />} />
         </Routes>
       </Router>

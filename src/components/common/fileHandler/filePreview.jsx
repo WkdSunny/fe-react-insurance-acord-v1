@@ -30,6 +30,7 @@ const FilePreviewHeader = styled.div`
     color: var(--body-bg-1);
     height: 2rem;
     width: 2rem;
+    font-size: 1rem;
     opacity: 0.5;
 
     &:hover {
@@ -120,7 +121,7 @@ const FilePreviewActionButtons = styled.div`
   button {
     background-color: var(--txt-color-2);
     color: var(--body-bg-1);
-    font-size: 1rem;
+    font-size: 0.7rem;
     height: 1.5rem;
     width: 1.5rem;
     opacity: 0.5;

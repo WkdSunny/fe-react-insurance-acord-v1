@@ -26,6 +26,30 @@ const ButtonContainer = styled.button`
   }
 `;
 
+const ButtonContainerWithText = styled.button`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5rem;
+  margin: 0.25rem;
+  height: 2rem;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: var(--body-bg-2);
+  color: var(--txt-color-3);
+  font-family: var(--txt-font-1);
+  font-size: 1rem;
+  font-weight: 700;
+  box-shadow: var(--box-shadow-black-bottom-right);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--body-bg-1);
+    color: var(--txt-color-2);
+  }
+`;
+
 export function CheckButton({ onClick }) {
   return (
     <ButtonContainer onClick={onClick}>
@@ -103,5 +127,13 @@ export function Support({ onClick }) {
     <ButtonContainer onClick={onClick}>
       <span><FontAwesomeIcon icon={faQuestionCircle} /></span>
     </ButtonContainer>
+  );
+}
+
+export function TextButton({ text, onClick }) {
+  return (
+    <ButtonContainerWithText onClick={onClick}>
+      <span>{text}</span>
+    </ButtonContainerWithText>
   );
 }
