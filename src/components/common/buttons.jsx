@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faRemove, faUpload, faTrashAlt, faHome, faCaretUp, faCaretDown, faFileAlt } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faRemove, faUpload, faTrashAlt, faHome, faCaretUp, faCaretDown, faFileAlt, faCommentDots,faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
 
 const ButtonContainer = styled.button`
   display: flex;
@@ -86,6 +86,22 @@ export function NewButton({ onClick }) {
   return (
     <ButtonContainer onClick={onClick}>
       <span><FontAwesomeIcon icon={faFileAlt} /></span>
+    </ButtonContainer>
+  );
+}
+
+export function Feedback({ onClick }) {
+  return (
+    <ButtonContainer onClick={onClick}>
+      <span><FontAwesomeIcon icon={faCommentDots} /></span>
+    </ButtonContainer>
+  );
+}
+
+export function Support({ onClick }) {
+  return (
+    <ButtonContainer onClick={onClick}>
+      <span><FontAwesomeIcon icon={faQuestionCircle} /></span>
     </ButtonContainer>
   );
 }

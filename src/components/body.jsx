@@ -11,7 +11,9 @@ const BodyContainer = styled.div `
 function Body() {
 
   return (
-    <BodyContainer />
+    <>
+      <BodyContainer />
+    </>
   );
 }
 
