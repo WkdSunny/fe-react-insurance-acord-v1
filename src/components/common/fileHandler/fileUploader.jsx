@@ -10,7 +10,7 @@ const FileUploadContainer = styled.div `
   height: 100%;
 `
 
-function FileUploader() {
+export default function FileUploader() {
   const [files, setFiles] = useState([]);
   const onFileChange = (newFiles) => {
     setFiles(newFiles);
@@ -19,11 +19,11 @@ function FileUploader() {
   return (
     <FileUploadContainer>
       <DragDrop files={files} onDrop={onFileChange} />
-      {files.length > 0 ? (
-        <FilePreview files={files} onFileChange={onFileChange} />
-      ) : null}
+        {files.length > 0 ? (
+          <>
+            <FilePreview files={files} onFileChange={onFileChange} />
+          </>
+        ) : null}
     </FileUploadContainer>
   );
 }
-
-export default FileUploader;

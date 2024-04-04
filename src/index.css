@@ -1,7 +1,9 @@
 :root {
   --body-bg-1: #f5f8ff;
+  --body-bg-1-transparent-75: #f5f8ffab;
   --body-bg-1-alt: #fff;
   --body-bg-2: #0078D4;
+  --body-bg-2-alt: #c4e3fa;
   --body-bg-3: #ccc;
   --body-bg-4: #555;
   --hover-bg-1: #c4e3fa;

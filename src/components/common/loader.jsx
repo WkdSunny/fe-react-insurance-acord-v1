@@ -60,8 +60,8 @@ const Loading = styled.div`
   }
 `;
 
-export function Loader() {
-  const messages = React.useMemo(() => ['Loading.', 'Loading..', 'Loading...', 'Loading....'], []);
+export default function Loader(messages = ['Loading.', 'Loading..', 'Loading...', 'Loading....']) {
+  // const messages = React.useMemo(() => ['Loading.', 'Loading..', 'Loading...', 'Loading....'], []);
   const [currentMessage, setCurrentMessage] = useState(messages[0]);
 
   useEffect(() => {

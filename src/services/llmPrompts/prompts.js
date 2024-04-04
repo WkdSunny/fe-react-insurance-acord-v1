@@ -1,4 +1,4 @@
-const getPrompt = (data) => {
+export const getPrompt = (data) => {
 
   const content = () => {
     let subContent = '';
@@ -152,5 +152,3 @@ const getFormType = (data) => {
   const formType = matches.map(match => match.replace(/\\nACORD\s/g, 'Acord '))[0];
   return formType;
 }
-
-export default getPrompt;
