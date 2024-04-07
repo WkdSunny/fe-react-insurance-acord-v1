@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { UploadButton, DeleteButton, CheckButton } from "../buttons";
 import { ImageConfig } from "../imageConfig";
 import ExtractionHandler from "./extractionHandler";
+import Success from "../success2";
 
 const FilePreviewContainer = styled.div`
   display: flex;
@@ -134,7 +135,7 @@ const FilePreviewActionButtons = styled.div`
 function FilePreview(props) {
   const [files, setFiles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [isAPISuccess, setAPISuccess] = useState(false);
+  // const [isAPISuccess, setAPISuccess] = useState(false);
 
 
   const fileRemove = (file) => {
@@ -151,14 +152,15 @@ function FilePreview(props) {
   };
 
   const uploadFiles = async (files) => {
-    setAPISuccess(false);
+    // setAPISuccess(false);
     setIsLoading(true);
     setFiles(files);
   }
 
   return (
     <FilePreviewContainer>
-      {isLoading && <ExtractionHandler files={files} isLoading={isLoading} setIsLoading={setIsLoading} isAPISuccess={isAPISuccess} setAPISuccess={setAPISuccess} />}
+      {isLoading && <ExtractionHandler files={files} isLoading={isLoading} setIsLoading={setIsLoading} />} {/*isAPISuccess={isAPISuccess} setAPISuccess={setAPISuccess} />*/}
+      {/* {isAPISuccess && <Success />} */}
       <FilePreviewHeader>
         <FilePreviewTitle>Ready to upload...</FilePreviewTitle>
         <FilePreviewButtonContainer>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from "styled-components";
 import { Extraction, llmResponse } from '../../../services/apiHandler/extraction';
 import { getPrompt } from '../../../services/llmPrompts/prompts';
@@ -20,14 +20,26 @@ const LoaderContainer = styled.div`
   z-index: 9999;
 `;
 
-export default function ExtractionHandler({ files, isLoading, setIsLoading, isAPISuccess, setAPISuccess }) {
+export default function ExtractionHandler({ files, isLoading, setIsLoading,}) { //isAPISuccess, setAPISuccess }) {
   const [message, setMessage] = useState('Uploading file...');
-  // const [isAPISuccess, setAPISuccess] = useState(false);
+  const isMounted = useRef(true);
+  const [isAPISuccess, setAPISuccess] = useState(false);
+
+  useEffect(() => {
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    console.log('Has API Success status changed:', isAPISuccess);
+  }, [isAPISuccess]);
 
   useEffect(() => {
     const performExtraction = async () => {
+      if (!isMounted.current) return;
       setIsLoading(true);
-      // setAPISuccess(false);
+
       try {
         const data = await Extraction(files);
         setMessage('File uploaded successfully!');
@@ -48,13 +60,20 @@ export default function ExtractionHandler({ files, isLoading, setIsLoading, isAP
               originalFileName = 'output';
             }
             try {
+              console.log('About to call insert data into Excel...');
               const workbook = await insertDataIntoExcel(llmResponseData)
               setMessage('Data inserted into Excel...');
               setIsLoading(false);
+              
+              console.log('About to call setAPISuccess(true)');
               setAPISuccess(true);
+              console.log('API Success status:', isAPISuccess)
+              console.log('Just called setAPISuccess(true)');
+
               try {
                 downloadExcelFile(workbook, originalFileName);
                 setMessage('File is ready to be downloaded...');
+
               } catch (error) {
                 console.error('Error downloading Excel file:', error);
               }
@@ -73,15 +92,15 @@ export default function ExtractionHandler({ files, isLoading, setIsLoading, isAP
       }
     };
     performExtraction();
-  }, [files, setIsLoading, setAPISuccess]);
+  }, [files, setIsLoading, setAPISuccess, isAPISuccess]);
 
   return (
     <>
       {isLoading ? <LoaderContainer><Loader messages={[message]} /></LoaderContainer> : null}
-      {isAPISuccess ? <LoaderContainer><Success /></LoaderContainer> : null}
-      {/* <SuccessHandler isAPISuccess={isAPISuccess} /> */}
+      {/* {isAPISuccess ? <LoaderContainer><Success /></LoaderContainer> : null} */}
     </>
   );
+
 }
 
 // function SuccessHandler(isAPISuccess) {
